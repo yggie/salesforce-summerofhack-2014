@@ -91,5 +91,5 @@ angular.module('CreateGroupTabApp')
   }]);
 
 angular.module("CreateGroupTabApp").run(["$templateCache", function($templateCache) {$templateCache.put("create-group-tab/views/category.html","<div>\n  <section data-ng-repeat=\"course in courses\">\n    <h3><button data-ng-click=\"add(course)\">{{course.name}}</button></h3>\n    <p>{{course.shortDescription}}</p>\n  </section>\n</div>\n");
-$templateCache.put("create-group-tab/views/index.html","<ul>\n  <li data-ng-repeat=\"category in categories\">\n    <a data-ng-href=\"#/categories/{{category.id}}\">\n      <h3>{{category.name}}</h3>\n    </a>\n  </li>\n</ul>\n");}]);
+$templateCache.put("create-group-tab/views/index.html","<div class=\"container applicationbackground\">\n  <div class=\"col-md-4 tile\" data-ng-repeat=\"category in categories\">\n    <!-- <img src=\"{{category.image}}\" /> -->\n    <div class=\"tileimage\">\n    	<img src=\"./assets/images/1.png\" />\n    </div>\n    <div class=\"mainlinktext\">\n    	<a data-ng-href=\"#/categories/{{category.id}}\">\n      		<h3>{{category.name}}</h3>\n    	</a>\n	</div>\n  </div>\n</div>\n");}]);
 })(window, document);

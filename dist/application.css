@@ -1,2 +1,44 @@
 h1 {
   color: red !important; }
+
+.applicationbackground {
+  background-color: #4ab471; }
+
+.mainlinktext h3 {
+  color: white; }
+
+.tile {
+  background-color: #8364d6; }
+
+div.arts {
+  background-color: #8364d6; }
+
+div.biology_life_sciences {
+  background-color: #15a8fc; }
+
+div.business_management {
+  background-color: #ffbb00; }
+
+div.chemistry {
+  background-color: #15a8fc; }
+
+div.cs_artificial_intelligence {
+  background-color: #4d72a9; }
+
+div.cs_software_engineering {
+  background-color: #4d72a9; }
+
+div.cs_systems_security {
+  background-color: #4d72a9; }
+
+div.cs_theory {
+  background-color: #4d72a9; }
+
+div.economics_finance {
+  background-color: #15a8fc; }
+
+.tileimage img {
+  margin-left: 25%; }
+
+.tileimage a h3 {
+  margin-left: 25%; }

@@ -1,7 +1,13 @@
-<ul>
-  <li ng-repeat="category in categories">
-    <a ng-href="#/categories/{{category.id}}">
-      <h3>{{category.name}}</h3>
-    </a>
-  </li>
-</ul>
+<div class="container applicationbackground">
+  <div class="col-md-4 tile" ng-repeat="category in categories">
+    <!-- <img src="{{category.image}}" /> -->
+    <div class="tileimage">
+    	<img src="./assets/images/1.png" />
+    </div>
+    <div class="mainlinktext">
+    	<a ng-href="#/categories/{{category.id}}">
+      		<h3>{{category.name}}</h3>
+    	</a>
+	</div>
+  </div>
+</div>
