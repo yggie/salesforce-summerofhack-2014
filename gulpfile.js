@@ -45,7 +45,7 @@ gulp.task('compile-templates', function() {
         customPrefixes: ['sf-']
       }))
       .pipe(templateCache('templates.js', {
-        module: 'App'
+        module: 'CreateGroupTabApp'
       }))
       .pipe(gulp.dest('tmp'))
       .pipe(notify('Angular template compilation completed successfully'));
