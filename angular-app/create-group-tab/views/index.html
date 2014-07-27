@@ -1,13 +1,10 @@
-<div class="container applicationbackground">
-  <div class="col-md-4 tile" ng-repeat="category in categories">
-    <!-- <img src="{{category.image}}" /> -->
-    <div class="tileimage">
-    	<img src="./assets/images/1.png" />
-    </div>
-    <div class="mainlinktext">
-    	<a ng-href="#/categories/{{category.id}}">
-      		<h3>{{category.name}}</h3>
-    	</a>
-	</div>
-  </div>
+<nav class="navbar custom-nav">
+  <p><span class="step step-1"></span>Pick a Category</p>
+</nav>
+
+<div class="container-fluid index">
+  <a ng-href="#/categories/{{category.id}}" class="col-xs-4 category-tile" ng-class="category.style" ng-repeat="category in categories">
+    <div class="tile-img"></div>
+    <h3>{{category.name}}</h3>
+  </a>
 </div>

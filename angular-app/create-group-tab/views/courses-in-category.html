@@ -1,0 +1,18 @@
+<nav class="navbar custom-nav">
+  <div class="pull-left">
+    <p><span class="step step-1"></span>Select a Course</p>
+  </div>
+  <div class="pull-right">
+    <button class="step-submit" ng-click="done()" ng-disabled="!canSubmit()">Done</button>
+  </div>
+</nav>
+
+<div class="container-fluid courses-in-category">
+  <section class="course-tile" ng-repeat="course in courses">
+    <div class="col-xs-2 checkbox" ng-click="toggle(course)" ng-class="isSelected(course) ? 'on' : 'off'"></div>
+    <a class="col-xs-10" ng-href="#/courses/{{course.id}}">
+      <strong><small>{{course.universityName}}</small></strong>
+      <p>{{course.name}}</p>
+    </a>
+  </section>
+</div>

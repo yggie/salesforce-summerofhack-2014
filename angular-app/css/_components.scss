@@ -1,0 +1,35 @@
+@import "angular-app/css/colors";
+
+$step-size: 20px;
+$nav-height: 50px;
+
+nav.custom-nav {
+  height: $nav-height;
+  background-color: $green;
+  margin: 0;
+  padding: 0;
+  color: $white;
+  font-size: 1.4em;
+  line-height: $nav-height;
+  vertical-align: middle;
+  background-color: $green;
+  border-radius: 0;
+}
+
+.step {
+  width: $step-size;
+  height: $step-size;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0 15px;
+  margin-left: 20px;
+}
+
+.step-1 {
+  background-image: url('/assets/images/ic_step_one.png')
+}
+
+.step-2 {
+  background-image: url('/assets/images/ic_step_two.png')
+}

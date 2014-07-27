@@ -1,0 +1,61 @@
+@import "angular-app/css/components";
+
+$course-tile-height: 60px;
+
+.course-tile {
+  height: $course-tile-height;
+  width: 100%;
+  cursor: pointer;
+  font-size: 0.8em;
+  text-align: bottom;
+  overflow: hidden;
+  border-bottom: 1px solid gray;
+  margin: 1px 0;
+
+  p {
+    font-size: 1.3em;
+  }
+
+  a {
+    color: black;
+
+    &:hover, &:visited {
+      color: black;
+      text-decoration: none;
+    }
+  }
+
+  .checkbox {
+    margin: 0;
+    padding: 20px 0;
+    height: $course-tile-height;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &.on {
+      background-image: url('/assets/images/check_box_on.png');
+    }
+    &.off {
+      background-image: url('/assets/images/check_box_off.png');
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+  }
+}
+
+.courses-in-category {
+  background-color: $white;
+}
+
+.step-submit {
+  height: 100%;
+  background-color: transparent;
+  border: none;
+
+  &[disabled] {
+    color: lightgray;
+  }
+}

@@ -1,0 +1,103 @@
+@import "angular-app/css/components";
+
+$tile-img-size: 90px;
+
+.index {
+  background-color: $green;
+}
+
+.mainlinktext h3 {
+  color: $white;
+}
+
+.category-tile {
+  text-align: center;
+  height: $tile-img-size * 2;
+  color: $white;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+
+  h3 {
+    font-size: 1.0em;
+    padding: 0;
+  }
+}
+
+.tile-img {
+  height: $tile-img-size;
+  width: $tile-img-size;
+  margin: 0 auto;
+  background-size: 100%;
+}
+
+.unknown {
+  background-color: gray;
+}
+
+.arts {
+  background-color: $art_color;
+  .tile-img {
+    background-image: url("/assets/images/arts.png");
+  }
+}
+
+.biology_life_sciences {
+  background-color: $biology_life_sciences_color;
+  .tile-img {
+    background-image: url("/assets/images/biology_life_sciences.png");
+  }
+}
+
+.business_management {
+  background-color: $business_management_color;
+  .tile-img {
+    background-image: url("/assets/images/business_management.png");
+  }
+}
+
+.chemistry {
+  background-color: $chemistry_color;
+  .tile-img {
+    background-image: url("/assets/images/chemistry.png");
+  }
+}
+
+.cs_artificial_intelligence {
+  background-color: $cs_artificial_intelligence_color;
+  .tile-img {
+    background-image: url("/assets/images/cs_artificial_intelligence.png");
+  }
+}
+
+.cs_software_engineering {
+  background-color: $cs_software_engineering_color;
+  .tile-img {
+    background-image: url("/assets/images/cs_software_engineering.png");
+  }
+}
+
+.cs_systems_security {
+  background-color: $cs_systems_security_color;
+  .tile-img {
+    background-image: url("/assets/images/cs_systems_security.png");
+  }
+}
+
+.cs_theory {
+  background-color: $cs_theory_color;
+  .tile-img {
+    background-image: url("/assets/images/cs_theory.png");
+  }
+}
+
+.economics_finance {
+  background-color: $economics_finance_color;
+  .tile-img {
+    background-image: url("/assets/images/economics_finance.png");
+  }
+}

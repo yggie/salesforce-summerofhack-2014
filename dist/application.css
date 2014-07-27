@@ -1,44 +1,166 @@
-h1 {
-  color: red !important; }
+nav.custom-nav {
+  height: 50px;
+  background-color: #4ab471;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 1.4em;
+  line-height: 50px;
+  vertical-align: middle;
+  background-color: #4ab471;
+  border-radius: 0; }
 
-.applicationbackground {
+.step {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0 15px;
+  margin-left: 20px; }
+
+.step-1 {
+  background-image: url('/assets/images/ic_step_one.png'); }
+
+.step-2 {
+  background-image: url('/assets/images/ic_step_two.png'); }
+
+.course-tile {
+  height: 60px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 0.8em;
+  text-align: bottom;
+  overflow: hidden;
+  border-bottom: 1px solid gray;
+  margin: 1px 0; }
+  .course-tile p {
+    font-size: 1.3em; }
+  .course-tile a {
+    color: black; }
+    .course-tile a:hover, .course-tile a:visited {
+      color: black;
+      text-decoration: none; }
+  .course-tile .checkbox {
+    margin: 0;
+    padding: 20px 0;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: center; }
+    .course-tile .checkbox.on {
+      background-image: url('/assets/images/check_box_on.png'); }
+    .course-tile .checkbox.off {
+      background-image: url('/assets/images/check_box_off.png'); }
+  .course-tile h3 {
+    margin-top: 0;
+    font-size: 1.2em; }
+
+.courses-in-category {
+  background-color: white; }
+
+.step-submit {
+  height: 100%;
+  background-color: transparent;
+  border: none; }
+  .step-submit[disabled] {
+    color: lightgray; }
+
+nav.custom-nav {
+  height: 50px;
+  background-color: #4ab471;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 1.4em;
+  line-height: 50px;
+  vertical-align: middle;
+  background-color: #4ab471;
+  border-radius: 0; }
+
+.step {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0 15px;
+  margin-left: 20px; }
+
+.step-1 {
+  background-image: url('/assets/images/ic_step_one.png'); }
+
+.step-2 {
+  background-image: url('/assets/images/ic_step_two.png'); }
+
+.index {
   background-color: #4ab471; }
 
 .mainlinktext h3 {
   color: white; }
 
-.tile {
-  background-color: #8364d6; }
+.category-tile {
+  text-align: center;
+  height: 180px;
+  color: white;
+  padding: 0;
+  margin: 0; }
+  .category-tile:hover {
+    color: white;
+    text-decoration: none; }
+  .category-tile h3 {
+    font-size: 1em;
+    padding: 0; }
 
-div.arts {
-  background-color: #8364d6; }
+.tile-img {
+  height: 90px;
+  width: 90px;
+  margin: 0 auto;
+  background-size: 100%; }
 
-div.biology_life_sciences {
+.unknown {
+  background-color: gray; }
+
+.arts {
+  background-color: #8364d6; }
+  .arts .tile-img {
+    background-image: url("/assets/images/arts.png"); }
+
+.biology_life_sciences {
   background-color: #15a8fc; }
+  .biology_life_sciences .tile-img {
+    background-image: url("/assets/images/biology_life_sciences.png"); }
 
-div.business_management {
+.business_management {
   background-color: #ffbb00; }
+  .business_management .tile-img {
+    background-image: url("/assets/images/business_management.png"); }
 
-div.chemistry {
+.chemistry {
   background-color: #15a8fc; }
+  .chemistry .tile-img {
+    background-image: url("/assets/images/chemistry.png"); }
 
-div.cs_artificial_intelligence {
+.cs_artificial_intelligence {
   background-color: #4d72a9; }
+  .cs_artificial_intelligence .tile-img {
+    background-image: url("/assets/images/cs_artificial_intelligence.png"); }
 
-div.cs_software_engineering {
+.cs_software_engineering {
   background-color: #4d72a9; }
+  .cs_software_engineering .tile-img {
+    background-image: url("/assets/images/cs_software_engineering.png"); }
 
-div.cs_systems_security {
+.cs_systems_security {
   background-color: #4d72a9; }
+  .cs_systems_security .tile-img {
+    background-image: url("/assets/images/cs_systems_security.png"); }
 
-div.cs_theory {
+.cs_theory {
   background-color: #4d72a9; }
+  .cs_theory .tile-img {
+    background-image: url("/assets/images/cs_theory.png"); }
 
-div.economics_finance {
+.economics_finance {
   background-color: #15a8fc; }
-
-.tileimage img {
-  margin-left: 25%; }
-
-.tileimage a h3 {
-  margin-left: 25%; }
+  .economics_finance .tile-img {
+    background-image: url("/assets/images/economics_finance.png"); }

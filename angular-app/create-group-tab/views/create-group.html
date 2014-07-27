@@ -1,0 +1,24 @@
+<nav class="custom-nav">
+  <p><span class="step step-2"></span>Set a Group</p>
+</nav>
+<br>
+
+<form class="container-fluid" ng-submit="submit(group)">
+  <div class="form-group">
+    <label for="group-name">Name</label>
+    <input id="group-name" type="text" class="form-control" ng-model="group.name">
+  </div>
+
+  <div class="form-group">
+    <label for="group-description">Description</label>
+    <textarea id="group-description" type="text" rows="5" class="form-control" ng-model="group.description" >
+    </textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="group-location">Location</label>
+    <input id="group-location" type="text" class="form-control" ng-model="group.location">
+  </div>
+
+  <input type="submit" class="btn btn-success form-control" value="Create New Group">
+</form>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera'])
+angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera', 'services.Remoting'])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
@@ -8,8 +8,16 @@ angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera'])
         controller: 'IndexController'
       })
       .when('/categories/:category_id', {
-        templateUrl: 'create-group-tab/views/category.html',
+        templateUrl: 'create-group-tab/views/courses-in-category.html',
         controller: 'CoursesInCategoryController'
+      })
+      .when('/create', {
+        templateUrl: 'create-group-tab/views/create-group.html',
+        controller: 'CreateGroupController'
+      })
+      .when('/courses/:course_id', {
+        templateUrl: 'create-group-tab/views/course.html',
+        controller: 'CourseController'
       })
       .otherwise({ redirectTo: '/' });
   });

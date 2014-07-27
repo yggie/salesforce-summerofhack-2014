@@ -5,7 +5,11 @@ angular.module('services.Coursera', []);
 
 'use strict';
 
-angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera'])
+angular.module('services.Remoting', []);
+
+'use strict';
+
+angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera', 'services.Remoting'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
@@ -13,8 +17,16 @@ angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera'])
         controller: 'IndexController'
       })
       .when('/categories/:category_id', {
-        templateUrl: 'create-group-tab/views/category.html',
+        templateUrl: 'create-group-tab/views/courses-in-category.html',
         controller: 'CoursesInCategoryController'
+      })
+      .when('/create', {
+        templateUrl: 'create-group-tab/views/create-group.html',
+        controller: 'CreateGroupController'
+      })
+      .when('/courses/:course_id', {
+        templateUrl: 'create-group-tab/views/course.html',
+        controller: 'CourseController'
       })
       .otherwise({ redirectTo: '/' });
   }]);
@@ -24,6 +36,31 @@ angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera'])
 angular.module('services.Coursera')
   .service('CategoriesService', ['SampleCategoriesService', function(SampleCategoriesService) {
     this.categories = SampleCategoriesService.payload.elements;
+
+    var styleMappings = {
+      'Computer Science: Artificial Intelligence': 'cs_artificial_intelligence',
+      'Computer Science: Systems & Security': 'cs_systems_security',
+      'Computer Science: Software Engineering': 'cs_software_engineering',
+      'Computer Science: Theory': 'cs_theory',
+      'Economics & Finance': 'economics_finance',
+      'Chemistry': 'chemistry',
+      'Business & Management': 'business_management',
+      'Biology & Life Sciences': 'biology_life_sciences',
+      'Arts': 'arts'
+    };
+
+    var i = this.categories.length;
+    while (i--) {
+      var category = this.categories[i],
+          keys = Object.keys(styleMappings),
+          index = keys.indexOf(category.name);
+
+      if (index > -1) {
+        category.style = styleMappings[category.name];
+      } else {
+        category.style = 'unknown';
+      }
+    }
     console.log('Categories');
     console.log(this.categories);
 
@@ -33,8 +70,26 @@ angular.module('services.Coursera')
 'use strict';
 
 angular.module('services.Coursera')
-  .service('CoursesService', ['SampleCoursesService', function(SampleCoursesService) {
+  .service('CoursesService', ['SampleCoursesService', 'UniversitiesService', function(SampleCoursesService, UniversitiesService) {
     this.courses = SampleCoursesService.payload.elements;
+
+    var i = this.courses.length;
+    while (i--) {
+      var course = this.courses[i],
+          universities = course.links.universities;
+
+      course.universityName = universities.map(function(uniId) {
+        var university = UniversitiesService.find(uniId);
+        if (university) {
+          return university.name;
+        } else {
+          return undefined;
+        }
+      }).filter(function(university) {
+        return university;
+      }).join(',');
+    }
+
     console.log('Courses');
     console.log(this.courses);
 
@@ -43,7 +98,13 @@ angular.module('services.Coursera')
         var categories = course.links.categories;
         return !categories || categories.indexOf(categoryId) != -1;
       });
-    }
+    };
+
+    this.find = function(id) {
+      return this.courses.filter(function(course) {
+        return course.id === id;
+      })[0];
+    }.bind(this);
 
     return this;
   }]);
@@ -62,25 +123,95 @@ this.payload = {"elements":[{"id":120,"name":"University of New Mexico","shortNa
 });
 'use strict';
 
+angular.module('services.Coursera')
+  .service('UniversitiesService', ['SampleUniversitiesService', function(SampleUniversitiesService) {
+    this.universities = SampleUniversitiesService.payload.elements;
+
+    this.find = function(id) {
+      return this.universities.filter(function(university) {
+        return id === university.id;
+      })[0];
+    }.bind(this);
+
+    return this;
+  }]);
+
+'use strict';
+
+angular.module('services.Remoting')
+  .service('GroupsService', function() {
+    var groups = [];
+
+    this.create = function(group) {
+      groups.push({
+        id: genId(),
+        name: group.name,
+        description: group.description,
+        location: group.location
+      });
+
+      console.log(groups[groups.length - 1]);
+    };
+
+    function genId() {
+      return Math.round(Math.random()*1e7);
+    }
+
+    return this;
+  });
+
+'use strict';
+
+angular.module('CreateGroupTabApp')
+  .controller('CourseController', ['$scope', '$routeParams', 'CoursesService', function($scope, $routeParams, CoursesService) {
+    $scope.course = CoursesService.find(parseInt($routeParams.course_id));
+  }]);
+
+'use strict';
+
 angular.module('CreateGroupTabApp')
   .controller('CoursesInCategoryController',
-              ['$scope', '$routeParams', 'CategoriesService', 'CoursesService', function($scope, $routeParams, CategoriesService, CoursesService) {
+              ['$scope', '$routeParams', '$location', 'CategoriesService', 'CoursesService', function($scope, $routeParams, $location, CategoriesService, CoursesService) {
     var categoryId = parseInt($routeParams.category_id),
         selected = [];
 
     $scope.courses = CoursesService.coursesInCategory(categoryId);
 
-    $scope.add = function(course) {
-      selected.push(course);
-      console.log('Added ' + course.name);
-    }
-
-    $scope.remove = function(course) {
-      var index = selectd.indexOf(course);
+    $scope.toggle = function(course) {
+      var index = selected.indexOf(course);
       if (index > -1) {
         selected.splice(index, 1);
+      } else {
+        selected.push(course);
       }
-    }
+    }.bind(this);
+
+    $scope.canSubmit = function() {
+      return selected.length > 0;
+    }.bind(this);
+
+    $scope.done = function() {
+      $location.path('/create');
+    }.bind(this);
+
+    $scope.isSelected = function(course) {
+      return selected.indexOf(course) > -1;
+    }.bind(this);
+  }]);
+
+'use strict';
+
+angular.module('CreateGroupTabApp')
+  .controller('CreateGroupController', ['$scope', 'GroupsService', function($scope, GroupsService) {
+    $scope.group = {
+      name: '',
+      description: '',
+      location: ''
+    };
+
+    $scope.submit = function(group) {
+      GroupsService.create(group);
+    };
   }]);
 
 'use strict';
@@ -90,6 +221,8 @@ angular.module('CreateGroupTabApp')
     $scope.categories = CategoriesService.categories;
   }]);
 
-angular.module("CreateGroupTabApp").run(["$templateCache", function($templateCache) {$templateCache.put("create-group-tab/views/category.html","<div>\n  <section data-ng-repeat=\"course in courses\">\n    <h3><button data-ng-click=\"add(course)\">{{course.name}}</button></h3>\n    <p>{{course.shortDescription}}</p>\n  </section>\n</div>\n");
-$templateCache.put("create-group-tab/views/index.html","<div class=\"container applicationbackground\">\n  <div class=\"col-md-4 tile\" data-ng-repeat=\"category in categories\">\n    <!-- <img src=\"{{category.image}}\" /> -->\n    <div class=\"tileimage\">\n    	<img src=\"./assets/images/1.png\" />\n    </div>\n    <div class=\"mainlinktext\">\n    	<a data-ng-href=\"#/categories/{{category.id}}\">\n      		<h3>{{category.name}}</h3>\n    	</a>\n	</div>\n  </div>\n</div>\n");}]);
+angular.module("CreateGroupTabApp").run(["$templateCache", function($templateCache) {$templateCache.put("create-group-tab/views/course.html","<nav class=\"navbar custom-nav\">\n  <p><span class=\"step step-1\"></span>Select a Course</p>\n</nav>\n\n<section class=\"container-fluid\">\n  <h3>{{course.name}}</h3>\n  <small><strong>{{course.universityName}}</strong></small>\n  <p>{{course.shortDescription}}</p>\n</section>\n");
+$templateCache.put("create-group-tab/views/courses-in-category.html","<nav class=\"navbar custom-nav\">\n  <div class=\"pull-left\">\n    <p><span class=\"step step-1\"></span>Select a Course</p>\n  </div>\n  <div class=\"pull-right\">\n    <button class=\"step-submit\" data-ng-click=\"done()\" data-ng-disabled=\"!canSubmit()\">Done</button>\n  </div>\n</nav>\n\n<div class=\"container-fluid courses-in-category\">\n  <section class=\"course-tile\" data-ng-repeat=\"course in courses\">\n    <div class=\"col-xs-2 checkbox\" data-ng-click=\"toggle(course)\" data-ng-class=\"isSelected(course) ? \'on\' : \'off\'\"></div>\n    <a class=\"col-xs-10\" data-ng-href=\"#/courses/{{course.id}}\">\n      <strong><small>{{course.universityName}}</small></strong>\n      <p>{{course.name}}</p>\n    </a>\n  </section>\n</div>\n");
+$templateCache.put("create-group-tab/views/create-group.html","<nav class=\"custom-nav\">\n  <p><span class=\"step step-2\"></span>Set a Group</p>\n</nav>\n<br>\n\n<form class=\"container-fluid\" data-ng-submit=\"submit(group)\">\n  <div class=\"form-group\">\n    <label for=\"group-name\">Name</label>\n    <input id=\"group-name\" type=\"text\" class=\"form-control\" data-ng-model=\"group.name\">\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"group-description\">Description</label>\n    <textarea id=\"group-description\" type=\"text\" rows=\"5\" class=\"form-control\" data-ng-model=\"group.description\" >\n    </textarea>\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"group-location\">Location</label>\n    <input id=\"group-location\" type=\"text\" class=\"form-control\" data-ng-model=\"group.location\">\n  </div>\n\n  <input type=\"submit\" class=\"btn btn-success form-control\" value=\"Create New Group\">\n</form>\n");
+$templateCache.put("create-group-tab/views/index.html","<nav class=\"navbar custom-nav\">\n  <p><span class=\"step step-1\"></span>Pick a Category</p>\n</nav>\n\n<div class=\"container-fluid index\">\n  <a ng-href=\"#/categories/{{category.id}}\" class=\"col-xs-4 category-tile\" ng-class=\"category.style\" ng-repeat=\"category in categories\">\n    <div class=\"tile-img\"></div>\n    <h3>{{category.name}}</h3>\n  </a>\n</div>\n");}]);
 })(window, document);
