@@ -12,7 +12,7 @@ $tile-img-size: 90px;
 
 .category-tile {
   text-align: center;
-  height: $tile-img-size * 2;
+  height: $tile-img-size * 1.7;
   color: $white;
   padding: 0;
   margin: 0;
@@ -22,9 +22,18 @@ $tile-img-size: 90px;
     text-decoration: none;
   }
 
-  h3 {
+  p {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
     font-size: 1.0em;
-    padding: 0;
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0;
+      line-height: normal;
+    }
   }
 }
 
@@ -36,68 +45,68 @@ $tile-img-size: 90px;
 }
 
 .unknown {
-  background-color: gray;
+  background-color: $gray;
 }
 
 .arts {
   background-color: $art_color;
   .tile-img {
-    background-image: url("/assets/images/arts.png");
+    background-image: url("assets/images/arts.png");
   }
 }
 
 .biology_life_sciences {
   background-color: $biology_life_sciences_color;
   .tile-img {
-    background-image: url("/assets/images/biology_life_sciences.png");
+    background-image: url("assets/images/biology_life_sciences.png");
   }
 }
 
 .business_management {
   background-color: $business_management_color;
   .tile-img {
-    background-image: url("/assets/images/business_management.png");
+    background-image: url("assets/images/business_management.png");
   }
 }
 
 .chemistry {
   background-color: $chemistry_color;
   .tile-img {
-    background-image: url("/assets/images/chemistry.png");
+    background-image: url("assets/images/chemistry.png");
   }
 }
 
 .cs_artificial_intelligence {
   background-color: $cs_artificial_intelligence_color;
   .tile-img {
-    background-image: url("/assets/images/cs_artificial_intelligence.png");
+    background-image: url("assets/images/cs_artificial_intelligence.png");
   }
 }
 
 .cs_software_engineering {
   background-color: $cs_software_engineering_color;
   .tile-img {
-    background-image: url("/assets/images/cs_software_engineering.png");
+    background-image: url("assets/images/cs_software_engineering.png");
   }
 }
 
 .cs_systems_security {
   background-color: $cs_systems_security_color;
   .tile-img {
-    background-image: url("/assets/images/cs_systems_security.png");
+    background-image: url("assets/images/cs_systems_security.png");
   }
 }
 
 .cs_theory {
   background-color: $cs_theory_color;
   .tile-img {
-    background-image: url("/assets/images/cs_theory.png");
+    background-image: url("assets/images/cs_theory.png");
   }
 }
 
 .economics_finance {
   background-color: $economics_finance_color;
   .tile-img {
-    background-image: url("/assets/images/economics_finance.png");
+    background-image: url("assets/images/economics_finance.png");
   }
 }

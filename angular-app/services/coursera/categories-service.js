@@ -27,6 +27,8 @@ angular.module('services.Coursera')
       } else {
         category.style = 'unknown';
       }
+
+      category.name = category.name.replace('Computer Science', 'CS');
     }
     console.log('Categories');
     console.log(this.categories);

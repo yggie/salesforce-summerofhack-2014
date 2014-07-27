@@ -1,7 +1,14 @@
 @import "angular-app/css/colors";
+@import "angular-app/css/mixins";
 
 $step-size: 20px;
 $nav-height: 50px;
+
+html, body, #main {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
 
 nav.custom-nav {
   height: $nav-height;
@@ -27,9 +34,9 @@ nav.custom-nav {
 }
 
 .step-1 {
-  background-image: url('/assets/images/ic_step_one.png')
+  background-image: url('assets/images/ic_step_one.png')
 }
 
 .step-2 {
-  background-image: url('/assets/images/ic_step_two.png')
+  background-image: url('assets/images/ic_step_two.png')
 }

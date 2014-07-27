@@ -33,10 +33,10 @@ $course-tile-height: 60px;
     background-position: center;
 
     &.on {
-      background-image: url('/assets/images/check_box_on.png');
+      background-image: url('assets/images/check_box_on.png');
     }
     &.off {
-      background-image: url('/assets/images/check_box_off.png');
+      background-image: url('assets/images/check_box_off.png');
     }
   }
 
@@ -51,11 +51,14 @@ $course-tile-height: 60px;
 }
 
 .step-submit {
-  height: 100%;
+  max-height: 100%;
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  font-weight: 100;
+  padding-right: 10px;
 
   &[disabled] {
-    color: lightgray;
+    color: $gray;
   }
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera', 'services.Remoting'])
+angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera', 'services.Remoting', 'Templates'])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {

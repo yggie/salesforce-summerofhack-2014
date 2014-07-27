@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('CreateGroupTabApp')
-  .controller('CreateGroupController', function($scope, GroupsService) {
+  .controller('CreateGroupController', function($scope, $location, GroupsService) {
     $scope.group = {
       name: '',
       description: '',
@@ -9,6 +9,8 @@ angular.module('CreateGroupTabApp')
     };
 
     $scope.submit = function(group) {
-      GroupsService.create(group);
+      GroupsService.create(group).then(function(newGroup) {
+        $location.path('/');
+      });
     };
   });

@@ -15,10 +15,12 @@ function getSamplesIfNotExists(name, path) {
 
       response.on('end', function() {
         var output = '' +
+        "/* jshint ignore:start */\n" +
         "angular.module('services.Coursera')\n" +
           ".service('Sample" + name + "Service', function() {\n" +
             'this.payload = ' + str.toString('utf-8') + ";\n" +
-          '});'
+          "});\n" +
+          "/* jshint ignore:end */"
         fs.writeFile(filename, output, function(err) {
           if (err) {
             console.log(err);

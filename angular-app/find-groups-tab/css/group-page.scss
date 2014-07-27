@@ -1,0 +1,37 @@
+@import "angular-app/css/components";
+
+$join-btn-width: 60%;
+
+.group-page {
+  width: 100%;
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    text-transform: uppercase;
+  }
+
+  .section {
+    border-bottom: 1px solid $gray;
+    padding: 10px;
+  }
+
+  .about {
+    .btn {
+      margin-left: (100 - $join-btn-width)/2;
+      margin-right: (100 - $join-btn-width)/2;
+      width: $join-btn-width;
+    }
+  }
+
+  .progress {
+    height: 40px;
+    @include css-border-radius(5px);
+    background-color: $white;
+
+    .progress-bar {
+      background-color: $green;
+      @include css-border-radius(5px);
+    }
+  }
+}

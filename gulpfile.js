@@ -31,10 +31,10 @@ gulp.task('compile-js', function() {
         header: '(function(window, document) {\n',
         footer: '\n})(window, document);'
       }))
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest('assets'))
       .pipe(rename('application.min.js'))
       .pipe(uglify())
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest('assets'))
       .pipe(notify('Javascript compilation completed successfully'));
 });
 
@@ -45,7 +45,7 @@ gulp.task('compile-templates', function() {
         customPrefixes: ['sf-']
       }))
       .pipe(templateCache('templates.js', {
-        module: 'CreateGroupTabApp'
+        module: 'Templates'
       }))
       .pipe(gulp.dest('tmp'))
       .pipe(notify('Angular template compilation completed successfully'));
@@ -55,7 +55,7 @@ gulp.task('sass', function() {
   return gulp.src('angular-app/**/*.scss')
       .pipe(sass())
       .pipe(concat('application.css'))
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest('assets'))
       .pipe(notify('SASS compilation completed successfully'));
 });
 

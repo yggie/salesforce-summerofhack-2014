@@ -7,18 +7,18 @@ angular.module('services.Coursera')
     var i = this.courses.length;
     while (i--) {
       var course = this.courses[i],
-          universities = course.links.universities;
+          universities = course.links.universities,
+          j = universities.length,
+          validUniversities = [];
 
-      course.universityName = universities.map(function(uniId) {
-        var university = UniversitiesService.find(uniId);
-        if (university) {
-          return university.name;
-        } else {
-          return undefined;
+      while (j--) {
+        var uni = UniversitiesService.find(universities[j]);
+        if (uni) {
+          validUniversities.push(uni.name);
         }
-      }).filter(function(university) {
-        return university;
-      }).join(',');
+      }
+
+      course.universityName = validUniversities.join(',');
     }
 
     console.log('Courses');

@@ -1,0 +1,16 @@
+<nav class="custom-nav">
+</nav>
+
+<div class="container-fluid find-groups-tab-index">
+  <section ng-click="select(group)" class="group-tile" ng-repeat="group in groups">
+    <div class="banner" ng-style="{'background-image': 'url(' + group.banner() + ')'}">
+      <h3><span>{{group.name}}</span></h3>
+    </div>
+    <p>
+      <ng-pluralize count="group.members().length"
+        when="{'0': 'No members', 'one': '1 member', 'other': '{} members'}">
+      </ng-pluralize>
+    </p>
+    <p>{{group.location}}</p>
+  </section>
+</div>
