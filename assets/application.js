@@ -13,11 +13,11 @@ angular.module('Templates', []);
 
 angular.module("Templates").run(["$templateCache", function($templateCache) {$templateCache.put("create-group-tab/views/course.html","<nav class=\"navbar custom-nav\">\n  <p><span class=\"step step-1\"></span>Select a Course</p>\n</nav>\n\n<section class=\"container-fluid\">\n  <h3>{{course.name}}</h3>\n  <small><strong>{{course.universityName}}</strong></small>\n  <p>{{course.shortDescription}}</p>\n</section>\n");
 $templateCache.put("create-group-tab/views/courses-in-category.html","<nav class=\"navbar custom-nav\">\n  <div class=\"pull-left\">\n    <p><span class=\"step step-1\"></span>Select a Course</p>\n  </div>\n  <div class=\"pull-right\">\n    <div class=\"step-submit\" data-ng-click=\"done()\" data-ng-disabled=\"!canSubmit()\">Done</div>\n  </div>\n</nav>\n\n<div class=\"container-fluid courses-in-category\">\n  <section class=\"course-tile\" data-ng-repeat=\"course in courses\">\n    <div class=\"col-xs-2 checkbox\" data-ng-click=\"toggle(course)\" data-ng-class=\"isSelected(course) ? \'on\' : \'off\'\"></div>\n    <a class=\"col-xs-10\" data-ng-href=\"#/courses/{{course.id}}\">\n      <strong><small>{{course.universityName}}</small></strong>\n      <p>{{course.name}}</p>\n    </a>\n  </section>\n</div>\n");
-$templateCache.put("create-group-tab/views/create-group.html","<nav class=\"custom-nav\">\n  <p><span class=\"step step-2\"></span>Set a Group</p>\n</nav>\n<br>\n\n<form class=\"container-fluid\" data-ng-submit=\"submit(group)\">\n  <div class=\"form-group\">\n    <label for=\"group-name\">Name</label>\n    <input id=\"group-name\" type=\"text\" class=\"form-control\" data-ng-model=\"group.name\">\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"group-description\">Description</label>\n    <textarea id=\"group-description\" type=\"text\" rows=\"5\" class=\"form-control\" data-ng-model=\"group.description\" >\n    </textarea>\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"group-location\">Location</label>\n    <input id=\"group-location\" type=\"text\" class=\"form-control\" data-ng-model=\"group.location\">\n  </div>\n\n  <input type=\"submit\" class=\"btn btn-success form-control\" value=\"Create New Group\">\n</form>\n");
+$templateCache.put("create-group-tab/views/create-group.html","<nav class=\"custom-nav\">\n  <p><span class=\"step step-2\"></span>Set a Group</p>\n</nav>\n<br>\n\n<form class=\"container-fluid\" data-ng-submit=\"submit(group)\">\n  <div class=\"form-group\">\n    <label for=\"group-name\">Name</label>\n    <input id=\"group-name\" type=\"text\" class=\"form-control\" data-ng-model=\"group.name\">\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"group-description\">Description</label>\n    <textarea id=\"group-description\" type=\"text\" rows=\"5\" class=\"form-control\" data-ng-model=\"group.description\" >\n    </textarea>\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"group-location\">Location</label>\n    <input id=\"group-location\" type=\"text\" class=\"form-control\" data-ng-model=\"group.location\">\n  </div>\n\n  <input type=\"submit\" class=\"btn btn-default form-control\" value=\"Create New Group\">\n</form>\n");
 $templateCache.put("create-group-tab/views/index.html","<nav class=\"navbar custom-nav\">\n  <p><span class=\"step step-1\"></span>Pick a Category</p>\n</nav>\n\n<div class=\"container-fluid index\">\n  <a ng-href=\"#/categories/{{category.id}}\" class=\"col-xs-4 category-tile\" ng-class=\"category.style\" ng-repeat=\"category in categories\">\n    <div class=\"tile-img\"></div>\n    <p><span>{{category.name}}</span></p>\n  </a>\n</div>\n");
-$templateCache.put("find-groups-tab/views/group.html","<nav class=\"banner nav-banner\" data-ng-style=\"{\'background-image\': \'url(\' + group.banner() + \')\'}\">\n  <div class=\"overlay\"></div>\n  <div class=\"summary\">\n    <h3>{{group.name}}</h3>\n    <p>\n      <data-ng-pluralize count=\"group.members().length\"\n      when=\"{\'0\': \'No members\', \'one\': \'1 member\', \'other\': \'{} members\'}\">\n      </data-ng-pluralize>\n    </p>\n    <p>{{group.location}}</p>\n  </div>\n</nav>\n\n<section class=\"group-page\">\n  <section class=\"section about\">\n    <h3>About</h3>\n    <p>{{group.description}}</p>\n    <button data-ng-click=\"join()\" class=\"btn btn-success\">Join this group</button>\n  </section>\n\n  <section class=\"section description\">\n    <h3>Course</h3>\n    <div class=\"course\" data-ng-repeat=\"course in group.courses()\">\n      <small><strong>{{course.universityName}}</strong></small>\n      <p>{{$index + 1}}. {{course.name}}</p>\n      <p>{{course.shortDescription}}</p>\n    </div>\n  </section>\n\n  <section class=\"section progress\">\n    <div class=\"progress-bar\" role=\"progressbar\" data-ng-style=\"{width: \'\' + group.progress() + \'%\'}\"\n      aria-valuenow=\"{{group.progress()}}\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n      {{group.progress()}} &#37;\n    </div>\n  </section>\n\n  <section class=\"section members\">\n    <h3>Members ({{group.members().length}})</h3>\n    <ul>\n      <li data-ng-repeat=\"member in group.members()\">\n        <img class=\"member-img\" data-ng-src=\"{{member.profileImageUrl}}\" alt=\"{{member.fullName}}\">\n      </li>\n    </ul>\n  </section>\n</section>\n");
+$templateCache.put("find-groups-tab/views/group.html","<nav class=\"banner nav-banner\" data-ng-style=\"{\'background-image\': \'url(\' + group.banner() + \')\'}\">\n  <div class=\"overlay\"></div>\n  <div class=\"summary\">\n    <h3>{{group.name}}</h3>\n    <p>\n      <data-ng-pluralize count=\"group.members().length\"\n      when=\"{\'0\': \'No members\', \'one\': \'1 member\', \'other\': \'{} members\'}\">\n      </data-ng-pluralize>\n    </p>\n    <p>{{group.location}}</p>\n  </div>\n</nav>\n\n<section class=\"group-page\">\n  <section class=\"section about\">\n    <h3>About</h3>\n    <p>{{group.description}}</p>\n    <button data-ng-click=\"join()\" class=\"btn btn-default\">Join this group</button>\n  </section>\n\n  <section class=\"section description\">\n    <h3>Course</h3>\n    <div class=\"course\" data-ng-repeat=\"course in group.courses()\">\n      <small><strong>{{course.universityName}}</strong></small>\n      <p>{{$index + 1}}. {{course.name}}</p>\n      <p>{{course.shortDescription}}</p>\n    </div>\n  </section>\n\n  <section class=\"section progress\">\n    <div class=\"progress-bar\" role=\"progressbar\" data-ng-style=\"{width: \'\' + group.progress() + \'%\'}\"\n      aria-valuenow=\"{{group.progress()}}\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n      {{group.progress()}} &#37;\n    </div>\n  </section>\n\n  <section class=\"section members\">\n    <h3>Members ({{group.members().length}})</h3>\n    <ul>\n      <li data-ng-repeat=\"member in group.members()\">\n        <img class=\"member-img\" data-ng-src=\"{{member.profileImageUrl}}\" alt=\"{{member.fullName}}\">\n      </li>\n    </ul>\n  </section>\n</section>\n");
 $templateCache.put("find-groups-tab/views/index.html","<nav class=\"custom-nav\">\n</nav>\n\n<div class=\"container-fluid find-groups-tab-index\">\n  <section data-ng-click=\"select(group)\" class=\"group-tile\" data-ng-repeat=\"group in groups\">\n    <div class=\"banner\" data-ng-style=\"{\'background-image\': \'url(\' + group.banner() + \')\'}\">\n      <h3><span>{{group.name}}</span></h3>\n    </div>\n    <p>\n      <data-ng-pluralize count=\"group.members().length\"\n        when=\"{\'0\': \'No members\', \'one\': \'1 member\', \'other\': \'{} members\'}\">\n      </data-ng-pluralize>\n    </p>\n    <p>{{group.location}}</p>\n  </section>\n</div>\n");
-$templateCache.put("find-groups-tab/views/join.html","<nav class=\"navbar custom-nav\">\n  <p style=\"padding-left: 20px\">{{group.name}}</p>\n</nav>\n\n<form ng-submit=\"submit()\" class=\"container-fluid\" style=\"padding-top: 20px\">\n  <div class=\"form-group\">\n    <label for=\"group-name\">Select a preferred start date</label>\n    <select id=\"group-name\" type=\"text\" class=\"form-control\">\n      <option value=\"\">23rd July</option>\n      <option value=\"\">15th November</option>\n    </select>\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"group-location\">Location</label>\n    <input id=\"group-location\" type=\"text\" class=\"form-control\" value=\"Brooklyn Bridge\">\n  </div>\n\n  <img src=\"http://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:red%7C40.702147,-74.015794\" style=\"width: 100%\" alt=\"\">\n\n  <div class=\"form-group\">\n    <label for=\"group-description\">Comment</label>\n    <textarea id=\"group-description\" type=\"text\" rows=\"2\" class=\"form-control\">\n    </textarea>\n  </div>\n\n  <input type=\"submit\" class=\"btn btn-success form-control\" value=\"Add to schedule\">\n</form>\n");
+$templateCache.put("find-groups-tab/views/join.html","<nav class=\"navbar custom-nav\">\n  <p style=\"padding-left: 20px\">{{group.name}}</p>\n</nav>\n\n<form ng-submit=\"submit()\" class=\"container-fluid\" style=\"padding-top: 20px\">\n  <div class=\"form-group\">\n    <label for=\"group-name\">Select a preferred start date</label>\n    <select id=\"group-name\" type=\"text\" class=\"form-control\">\n      <option value=\"\">23rd July</option>\n      <option value=\"\">15th November</option>\n    </select>\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"group-location\">Location</label>\n    <input id=\"group-location\" type=\"text\" class=\"form-control\" value=\"Brooklyn Bridge\">\n  </div>\n\n  <img src=\"http://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:red%7C40.702147,-74.015794\" style=\"width: 100%\" alt=\"\">\n\n  <div class=\"form-group\">\n    <label for=\"group-description\">Comment</label>\n    <textarea id=\"group-description\" type=\"text\" rows=\"2\" class=\"form-control\">\n    </textarea>\n  </div>\n\n  <input type=\"submit\" class=\"btn btn-default form-control\" value=\"Add to schedule\">\n</form>\n");
 $templateCache.put("find-groups-tab/views/success.html","<nav class=\"navbar custom-nav\">\n  <p style=\"padding-left: 20px\">Congratulations!</p>\n</nav>\n\n<section class=\"group-page\">\n  <div class=\"process-success section\">\n    <div class=\"logo\"></div>\n    <p style=\"font-size: 1.7em\">You have successfully joined {{group.name}}!</p>\n  </div>\n\n  <section class=\"section members\">\n    <ul>\n      <li data-ng-repeat=\"member in group.members()\">\n        <img class=\"member-img\" data-ng-src=\"{{member.profileImageUrl}}\" alt=\"{{member.fullName}}\">\n      </li>\n    </ul>\n  </section>\n</section>\n");}]);
 'use strict';
 
@@ -39,6 +39,10 @@ angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera', 'services.R
       .when('/courses/:course_id', {
         templateUrl: 'create-group-tab/views/course.html',
         controller: 'CourseController'
+      })
+      .when('/submission/:group_id', {
+        templateUrl: 'find-groups-tab/views/group.html',
+        controller: 'SubmissionController'
       })
       .otherwise({ redirectTo: '/' });
   }]);
@@ -202,7 +206,8 @@ angular.module('services.Coursera')
 angular.module('services.Remoting')
   .service('GroupsService', ['$q', '$http', 'CoursesService', function($q, $http, CoursesService) {
     var test = typeof(Visualforce) === 'undefined',
-        groups = [];
+        groups = [],
+        ended = false;
 
     // Constant
     function Group(params) {
@@ -214,6 +219,7 @@ angular.module('services.Remoting')
 
       this.samples = [];
 
+      if (!ended) {
       var num = Math.ceil(Math.random()*10 + 10);
       $http({ method: 'GET', url: 'http://api.randomuser.me/?results=' + num })
         .success(function(data, status, headers, config) {
@@ -226,6 +232,7 @@ angular.module('services.Remoting')
             };
           });
         }.bind(this));
+      }
     }
     Group.prototype.courses = function() {
       return this.courseIds.map(function(courseId) {
@@ -313,6 +320,8 @@ angular.module('services.Remoting')
       course_ids: [14, 480, 1322]
     });
 
+    ended = true;
+
     return this;
   }]);
 
@@ -367,7 +376,7 @@ angular.module('CreateGroupTabApp')
 
     $scope.submit = function(group) {
       GroupsService.create(group).then(function(newGroup) {
-        $location.path('/');
+        $location.path('/submission/' + newGroup.id);
       });
     };
   }]);
@@ -424,6 +433,24 @@ angular.module('FindGroupsTabApp')
 
     $scope.submit = function() {
       $location.path('/success/' + $scope.group.id);
+    };
+  }]);
+
+'use strict';
+
+angular.module('CreateGroupTabApp')
+  .controller('SubmissionController', ['$scope', '$routeParams', '$location', 'GroupsService', function($scope, $routeParams, $location, GroupsService) {
+    $scope.group = {};
+
+    GroupsService.find(parseInt($routeParams.group_id)).then(function(group) {
+      $scope.group = group;
+    }, function(error) {
+      console.log(error);
+      $location.path('/');
+    });
+
+    $scope.join = function() {
+      $location.path('/join/' + $scope.group.id);
     };
   }]);
 

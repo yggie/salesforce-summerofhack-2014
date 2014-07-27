@@ -3,7 +3,8 @@
 angular.module('services.Remoting')
   .service('GroupsService', function($q, $http, CoursesService) {
     var test = typeof(Visualforce) === 'undefined',
-        groups = [];
+        groups = [],
+        ended = false;
 
     // Constant
     function Group(params) {
@@ -15,6 +16,7 @@ angular.module('services.Remoting')
 
       this.samples = [];
 
+      if (!ended) {
       var num = Math.ceil(Math.random()*10 + 10);
       $http({ method: 'GET', url: 'http://api.randomuser.me/?results=' + num })
         .success(function(data, status, headers, config) {
@@ -27,6 +29,7 @@ angular.module('services.Remoting')
             };
           });
         }.bind(this));
+      }
     }
     Group.prototype.courses = function() {
       return this.courseIds.map(function(courseId) {
@@ -113,6 +116,8 @@ angular.module('services.Remoting')
       location: 'Washington',
       course_ids: [14, 480, 1322]
     });
+
+    ended = true;
 
     return this;
   });

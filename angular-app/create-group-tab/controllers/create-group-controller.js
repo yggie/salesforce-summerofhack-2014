@@ -10,7 +10,7 @@ angular.module('CreateGroupTabApp')
 
     $scope.submit = function(group) {
       GroupsService.create(group).then(function(newGroup) {
-        $location.path('/');
+        $location.path('/submission/' + newGroup.id);
       });
     };
   });

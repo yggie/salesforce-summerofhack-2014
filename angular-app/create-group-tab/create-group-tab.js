@@ -19,5 +19,9 @@ angular.module('CreateGroupTabApp', ['ngRoute', 'services.Coursera', 'services.R
         templateUrl: 'create-group-tab/views/course.html',
         controller: 'CourseController'
       })
+      .when('/submission/:group_id', {
+        templateUrl: 'find-groups-tab/views/group.html',
+        controller: 'SubmissionController'
+      })
       .otherwise({ redirectTo: '/' });
   });
