@@ -10,4 +10,8 @@ angular.module('FindGroupsTabApp')
       console.log(error);
       $location.path('/');
     });
+
+    $scope.join = function() {
+      $location.path('/join/' + $scope.group.id);
+    };
   });

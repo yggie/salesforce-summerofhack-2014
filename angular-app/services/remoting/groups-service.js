@@ -84,19 +84,31 @@ angular.module('services.Remoting')
     }
 
     this.create({
-      name: 'The Hardware/Software Interface',
+      name: 'Software Engineering Group',
       description: 'A long description',
-      location: 'Washington',
-      course_ids: [760, 1379, 92]
+      location: 'New York',
+      course_ids: [26, 1347, 9, 128, 27, 127, 688]
     });
     this.create({
-      name: 'Songwriting',
+      name: 'Songwriting Club',
       description: 'A long description',
       location: 'Berkeley',
       course_ids: [1119, 1811]
     });
     this.create({
-      name: 'Data Science',
+      name: 'Asian Cuisine',
+      description: 'A long description',
+      location: 'Washington',
+      course_ids: [14, 480, 1322]
+    });
+    this.create({
+      name: 'Spirituality and Meditation',
+      description: 'A long description',
+      location: 'New Orleans',
+      course_ids: [14, 480, 1322]
+    });
+    this.create({
+      name: 'Data Engineers',
       description: 'A long description',
       location: 'Washington',
       course_ids: [14, 480, 1322]

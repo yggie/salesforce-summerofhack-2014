@@ -10,6 +10,20 @@ html, body, #main {
   margin: 0;
 }
 
+.process-success {
+  height: 100%;
+}
+
+.logo {
+  height: 55px;
+  width: 300px;
+  margin: 20px auto;
+  background-image: url("images/logo_trans.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 nav.custom-nav {
   height: $nav-height;
   background-color: $green;

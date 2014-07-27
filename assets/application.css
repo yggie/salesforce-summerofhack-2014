@@ -3,6 +3,18 @@ html, body, #main {
   padding: 0;
   margin: 0; }
 
+.process-success {
+  height: 100%; }
+
+.logo {
+  height: 55px;
+  width: 300px;
+  margin: 20px auto;
+  background-image: url("images/logo_trans.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center; }
+
 nav.custom-nav {
   height: 50px;
   background-color: #4ab471;
@@ -77,6 +89,18 @@ html, body, #main {
   height: 100%;
   padding: 0;
   margin: 0; }
+
+.process-success {
+  height: 100%; }
+
+.logo {
+  height: 55px;
+  width: 300px;
+  margin: 20px auto;
+  background-image: url("images/logo_trans.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center; }
 
 nav.custom-nav {
   height: 50px;
@@ -225,6 +249,18 @@ html, body, #main {
   padding: 0;
   margin: 0; }
 
+.process-success {
+  height: 100%; }
+
+.logo {
+  height: 55px;
+  width: 300px;
+  margin: 20px auto;
+  background-image: url("images/logo_trans.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center; }
+
 nav.custom-nav {
   height: 50px;
   background-color: #4ab471;
@@ -331,6 +367,18 @@ html, body, #main {
   height: 100%;
   padding: 0;
   margin: 0; }
+
+.process-success {
+  height: 100%; }
+
+.logo {
+  height: 55px;
+  width: 300px;
+  margin: 20px auto;
+  background-image: url("images/logo_trans.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center; }
 
 nav.custom-nav {
   height: 50px;
