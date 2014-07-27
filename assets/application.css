@@ -25,10 +25,10 @@ nav.custom-nav {
   margin-left: 20px; }
 
 .step-1 {
-  background-image: url('assets/images/ic_step_one.png'); }
+  background-image: url('images/ic_step_one.png'); }
 
 .step-2 {
-  background-image: url('assets/images/ic_step_two.png'); }
+  background-image: url('images/ic_step_two.png'); }
 
 .course-tile {
   height: 60px;
@@ -53,9 +53,9 @@ nav.custom-nav {
     background-repeat: no-repeat;
     background-position: center; }
     .course-tile .checkbox.on {
-      background-image: url('assets/images/check_box_on.png'); }
+      background-image: url('images/check_box_on.png'); }
     .course-tile .checkbox.off {
-      background-image: url('assets/images/check_box_off.png'); }
+      background-image: url('images/check_box_off.png'); }
   .course-tile h3 {
     margin-top: 0;
     font-size: 1.2em; }
@@ -100,10 +100,10 @@ nav.custom-nav {
   margin-left: 20px; }
 
 .step-1 {
-  background-image: url('assets/images/ic_step_one.png'); }
+  background-image: url('images/ic_step_one.png'); }
 
 .step-2 {
-  background-image: url('assets/images/ic_step_two.png'); }
+  background-image: url('images/ic_step_two.png'); }
 
 .index {
   background-color: #4ab471; }
@@ -143,47 +143,47 @@ nav.custom-nav {
 .arts {
   background-color: #8364d6; }
   .arts .tile-img {
-    background-image: url("assets/images/arts.png"); }
+    background-image: url("images/arts.png"); }
 
 .biology_life_sciences {
   background-color: #15a8fc; }
   .biology_life_sciences .tile-img {
-    background-image: url("assets/images/biology_life_sciences.png"); }
+    background-image: url("images/biology_life_sciences.png"); }
 
 .business_management {
   background-color: #ffbb00; }
   .business_management .tile-img {
-    background-image: url("assets/images/business_management.png"); }
+    background-image: url("images/business_management.png"); }
 
 .chemistry {
   background-color: #15a8fc; }
   .chemistry .tile-img {
-    background-image: url("assets/images/chemistry.png"); }
+    background-image: url("images/chemistry.png"); }
 
 .cs_artificial_intelligence {
   background-color: #4d72a9; }
   .cs_artificial_intelligence .tile-img {
-    background-image: url("assets/images/cs_artificial_intelligence.png"); }
+    background-image: url("images/cs_artificial_intelligence.png"); }
 
 .cs_software_engineering {
   background-color: #4d72a9; }
   .cs_software_engineering .tile-img {
-    background-image: url("assets/images/cs_software_engineering.png"); }
+    background-image: url("images/cs_software_engineering.png"); }
 
 .cs_systems_security {
   background-color: #4d72a9; }
   .cs_systems_security .tile-img {
-    background-image: url("assets/images/cs_systems_security.png"); }
+    background-image: url("images/cs_systems_security.png"); }
 
 .cs_theory {
   background-color: #4d72a9; }
   .cs_theory .tile-img {
-    background-image: url("assets/images/cs_theory.png"); }
+    background-image: url("images/cs_theory.png"); }
 
 .economics_finance {
   background-color: #15a8fc; }
   .economics_finance .tile-img {
-    background-image: url("assets/images/economics_finance.png"); }
+    background-image: url("images/economics_finance.png"); }
 
 html, body, #main {
   height: 100%;
@@ -212,10 +212,10 @@ nav.custom-nav {
   margin-left: 20px; }
 
 .step-1 {
-  background-image: url('assets/images/ic_step_one.png'); }
+  background-image: url('images/ic_step_one.png'); }
 
 .step-2 {
-  background-image: url('assets/images/ic_step_two.png'); }
+  background-image: url('images/ic_step_two.png'); }
 
 .find-groups-tab-index {
   background-color: lightgrey; }
@@ -319,10 +319,10 @@ nav.custom-nav {
   margin-left: 20px; }
 
 .step-1 {
-  background-image: url('assets/images/ic_step_one.png'); }
+  background-image: url('images/ic_step_one.png'); }
 
 .step-2 {
-  background-image: url('assets/images/ic_step_two.png'); }
+  background-image: url('images/ic_step_two.png'); }
 
 .group-page {
   width: 100%; }
