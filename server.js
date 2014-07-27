@@ -4,7 +4,6 @@ var fs = require('fs'),
     express = require('express'),
     app = express();
 
-app.engine('.html', require('jade').renderFile);
 app.set('title', 'Salesforce Summer of Hacks (Local Test Environment)');
 app.use('/assets/', express.static(__dirname + '/assets/'));
 app.use('/lib/', express.static(__dirname + '/lib/'));

@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    nodemon = require('gulp-nodemon');
 
 gulp.task('lint', function() {
   return gulp.src('angular-app/**/*.js')
@@ -65,4 +66,8 @@ gulp.task('watch', function() {
   gulp.watch('angular-app/**/*.scss', ['sass']);
 });
 
-gulp.task('default', ['lint', 'compile-templates', 'compile-js', 'sass', 'watch']);
+gulp.task('develop', function() {
+  nodemon({ script: 'server.js' });
+});
+
+gulp.task('default', ['lint', 'compile-templates', 'compile-js', 'sass', 'watch', 'develop']);
