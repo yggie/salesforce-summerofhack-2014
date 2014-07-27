@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('services.Remoting')
-  .service('GroupsService', function($q) {
+  .service('GroupsService', function($q, $http, CoursesService) {
     var test = typeof(Visualforce) === 'undefined',
         groups = [];
 
@@ -11,12 +11,30 @@ angular.module('services.Remoting')
       this.name = params.name,
       this.description = params.description,
       this.location = params.location;
+      this.courseIds = params.course_ids || [];
+
+      this.samples = [];
+
+      var num = Math.ceil(Math.random()*10 + 10);
+      $http({ method: 'GET', url: 'http://api.randomuser.me/?results=' + num })
+        .success(function(data, status, headers, config) {
+          this.samples = data.results.map(function(raw) {
+            return {
+              name: raw.user.name,
+              fullName: raw.user.name.first + ' ' + raw.user.name.last,
+              gender: raw.user.gender,
+              profileImageUrl: raw.user.picture
+            };
+          });
+        }.bind(this));
     }
     Group.prototype.courses = function() {
-      return [];
+      return this.courseIds.map(function(courseId) {
+        return CoursesService.find(courseId);
+      }).filter(function(a) { return a; });
     };
     Group.prototype.members = function() {
-      return [];
+      return this.samples;
     };
     Group.prototype.nextSession = function() {
       return null;
@@ -68,17 +86,20 @@ angular.module('services.Remoting')
     this.create({
       name: 'The Hardware/Software Interface',
       description: 'A long description',
-      location: 'Washington'
+      location: 'Washington',
+      course_ids: [760, 1379, 92]
     });
     this.create({
       name: 'Songwriting',
       description: 'A long description',
-      location: 'Berkeley'
+      location: 'Berkeley',
+      course_ids: [1119, 1811]
     });
     this.create({
       name: 'Data Science',
       description: 'A long description',
-      location: 'Washington'
+      location: 'Washington',
+      course_ids: [14, 480, 1322]
     });
 
     return this;

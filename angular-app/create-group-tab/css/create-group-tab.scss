@@ -110,3 +110,52 @@ $tile-img-size: 90px;
     background-image: url("images/economics_finance.png");
   }
 }
+
+.education {
+  background-color: #41a930;
+  .tile-img {
+    background-image: url("images/education.png");
+  }
+}
+
+.energy_earth {
+  background-color: #00d1c9;
+  .tile-img {
+    background-image: url("images/energy_earth.png");
+  }
+}
+
+.food_and_nutrition {
+  background-color: #f22427;
+  .tile-img {
+    background-image: url("images/food_and_nutrition.png")
+  }
+}
+
+.humanities {
+  background-color: #ff8a16;
+  .tile-img {
+    background-image: url("images/humanities.png");
+  }
+}
+
+.information_tech_design {
+  background-color: #10d774;
+  .tile-img {
+    background-image: url("images/information_tech_design.png");
+  }
+}
+
+.law {
+  background-color: #ffbb00;
+  .tile-img {
+    background-image: url("images/law.png");
+  }
+}
+
+.mathematics {
+  background-color: #0083c9;
+  .tile-img {
+    background-image: url("images/mathematics.png")
+  }
+}

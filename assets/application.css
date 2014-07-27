@@ -185,6 +185,41 @@ nav.custom-nav {
   .economics_finance .tile-img {
     background-image: url("images/economics_finance.png"); }
 
+.education {
+  background-color: #41a930; }
+  .education .tile-img {
+    background-image: url("images/education.png"); }
+
+.energy_earth {
+  background-color: #00d1c9; }
+  .energy_earth .tile-img {
+    background-image: url("images/energy_earth.png"); }
+
+.food_and_nutrition {
+  background-color: #f22427; }
+  .food_and_nutrition .tile-img {
+    background-image: url("images/food_and_nutrition.png"); }
+
+.humanities {
+  background-color: #ff8a16; }
+  .humanities .tile-img {
+    background-image: url("images/humanities.png"); }
+
+.information_tech_design {
+  background-color: #10d774; }
+  .information_tech_design .tile-img {
+    background-image: url("images/information_tech_design.png"); }
+
+.law {
+  background-color: #ffbb00; }
+  .law .tile-img {
+    background-image: url("images/law.png"); }
+
+.mathematics {
+  background-color: #0083c9; }
+  .mathematics .tile-img {
+    background-image: url("images/mathematics.png"); }
+
 html, body, #main {
   height: 100%;
   padding: 0;
@@ -337,6 +372,17 @@ nav.custom-nav {
     margin-left: 20%;
     margin-right: 20%;
     width: 60%; }
+  .group-page .description .course {
+    border-bottom: 1px solid lightgrey;
+    padding: 5px; }
+  .group-page .members ul {
+    list-style: none; }
+    .group-page .members ul li {
+      display: inline-block; }
+  .group-page .members .member-img {
+    width: 80px;
+    height: 80px;
+    display: inline-block; }
   .group-page .progress {
     height: 40px;
     -webkit-border-radius: 5px;

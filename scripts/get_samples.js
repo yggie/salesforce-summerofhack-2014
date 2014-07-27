@@ -1,4 +1,5 @@
 var fs = require('fs'),
+    jsesc = require('jsesc'),
     http = require('http');
 
 function getSamplesIfNotExists(name, path) {

@@ -13,7 +13,14 @@ angular.module('services.Coursera')
       'Chemistry': 'chemistry',
       'Business & Management': 'business_management',
       'Biology & Life Sciences': 'biology_life_sciences',
-      'Arts': 'arts'
+      'Arts': 'arts',
+      'Education': 'education',
+      'Energy & Earth Sciences': 'energy_earth',
+      'Food and Nutrition': 'food_and_nutrition',
+      'Humanities': 'humanities',
+      'Information, Tech & Design': 'information_tech_design',
+      'Law': 'law',
+      'Mathematics': 'mathematics'
     };
 
     var i = this.categories.length;
@@ -29,6 +36,17 @@ angular.module('services.Coursera')
         this.categories.splice(this.categories.indexOf(category), 1);
       }
     }
+
+    this.categories.sort(function(a, b) {
+      if (a.name > b.name) {
+        return 1;
+      } else if (a.name < b.name) {
+        return -1;
+      }
+
+      return 0;
+    });
+
     console.log('Categories');
     console.log(this.categories);
 

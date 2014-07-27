@@ -24,6 +24,28 @@ $join-btn-width: 60%;
     }
   }
 
+  .description {
+    .course {
+      border-bottom: 1px solid $gray;
+      padding: 5px;
+    }
+  }
+
+  .members {
+    ul {
+      list-style: none;
+      li {
+        display: inline-block;
+      }
+    }
+
+    .member-img {
+      width: 80px;
+      height: 80px;
+      display: inline-block;
+    }
+  }
+
   .progress {
     height: 40px;
     @include css-border-radius(5px);

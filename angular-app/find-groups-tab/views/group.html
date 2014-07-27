@@ -20,7 +20,11 @@
 
   <section class="section description">
     <h3>Course</h3>
-    <p>Lorem Ipsum Placeholder</p>
+    <div class="course" ng-repeat="course in group.courses()">
+      <small><strong>{{course.universityName}}</strong></small>
+      <p>{{$index + 1}}. {{course.name}}</p>
+      <p>{{course.shortDescription}}</p>
+    </div>
   </section>
 
   <section class="section progress">
@@ -31,7 +35,11 @@
   </section>
 
   <section class="section members">
-    <h3>Members</h3>
-    <p>Lorem Ipsum Placeholder</p>
+    <h3>Members ({{group.members().length}})</h3>
+    <ul>
+      <li ng-repeat="member in group.members()">
+        <img class="member-img" ng-src="{{member.profileImageUrl}}" alt="{{member.fullName}}">
+      </li>
+    </ul>
   </section>
 </section>
