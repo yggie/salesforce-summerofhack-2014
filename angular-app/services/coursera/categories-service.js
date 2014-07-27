@@ -24,11 +24,10 @@ angular.module('services.Coursera')
 
       if (index > -1) {
         category.style = styleMappings[category.name];
+        category.name = category.name.replace('Computer Science', 'CS');
       } else {
-        category.style = 'unknown';
+        this.categories.splice(this.categories.indexOf(category), 1);
       }
-
-      category.name = category.name.replace('Computer Science', 'CS');
     }
     console.log('Categories');
     console.log(this.categories);
